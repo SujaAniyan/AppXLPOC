@@ -1,0 +1,197 @@
+#menu .row div,
+/*.session-overview .row div,*/
+#menu .row div a div {
+  display: block;
+  text-align: center;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div#profile-details {
+  padding-top: 10px;
+  /*background: url("../img/bg/headerbg.png") repeat;*/
+  background-color:  #4d4dff;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #FFF;
+}
+
+.profile-overview {
+    text-align: center;
+    text-shadow: 4px 6px 4px #ccc;
+}
+
+
+div#profile-details .profile-pic,
+div#profile-details .profile-name,
+div#profile-details .profile-desc,
+div#profile-details .profile-location {
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: workSansBold;
+  text-shadow: 1px 1px #444444;
+}
+
+div#profile-details .profile-location {
+  font-family: robotoBold;
+}
+
+div#profile-details .profile-name {
+  font-size: 1.3125em;
+}
+
+div#profile-details .profile-desc {
+  font-size: 0.875em;
+}
+
+div#profile-details .profile-location {
+  padding-bottom: 15px;
+  font-size: 0.75em;
+}
+
+div#profile-details .profile-location img {
+  width: 15px;
+  padding-right: 5px;
+  display: inline-block;
+}
+
+
+
+.profile-pic img {
+    width: 75px;
+    height: 75px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  
+}
+
+#profile-details .notifications {
+  top: 7px;
+  right: 35px;
+  position: absolute;
+}
+
+#profile-details .notifications a {
+  position: absolute;
+}
+
+#profile-details .notifications .image{
+  width: 30px;
+  padding-right: 5px;
+}
+
+.profile-location u {
+  text-decoration: inherit;
+  border-bottom: dotted 1px #fff;
+  padding-bottom: 2px;
+}
+
+
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+  
+  div#profile-details .profile-name {
+    font-size: 1.125em;
+  }
+
+  div#profile-details .profile-desc {
+    font-size: 0.875em;
+  }
+
+  div#profile-details .profile-location {
+    font-size: 0.75em;
+  }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 480px) {
+ 
+}
+@media only screen and (min-device-width: 485px) and (max-device-width: 768px) {
+    
+   
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+ 
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
+ 
+  div#profile-details .profile-location img {
+    width: 18px;
+  }
+}
+
+
+#menu .row div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 0.85em;
+  letter-spacing: 2px;
+}
+
+#menu .row {
+  padding-top: 15px;
+}
+
+span.menuName {
+  padding-top: 15px;
+}
+
+.menu-circle-icon {
+  width: 75px;
+  height: 75px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 50px;
+  margin: 0 auto;
+}
+
+    
+.spoc {
+  background: url("") #850057 no-repeat 50% 50%;
+  background-size: 45px;
+}
+.spoc-icon:before{
+  font-family:FontAwesome;
+  content:"\f095";
+  color: white;
+  font-size: 40px;
+
+}
+
+.spoc-text {
+  color: #4E1C3D;
+  padding-top: 13px;
+  font-family: workSansBold;
+}
+    
+    
+.logout{
+  background: url("") #ac3939 no-repeat 50% 50%;
+  background-size: 45px;
+}
+.logout:before{
+  font-family:FontAwesome;
+  content:"\f08b";
+  color: white;
+  font-size: 40px;
+
+}
+
+.logout-text {
+  color: #4E1C3D;
+  padding-top: 13px;
+  font-family: workSansBold;
+}
+    

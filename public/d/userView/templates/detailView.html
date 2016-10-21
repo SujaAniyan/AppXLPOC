@@ -1,0 +1,12 @@
+<div ng-if="userModel">
+   <div class="representative-bios">{{userModel.summary}}</div>
+   <div class="reach-representative">
+      <div class="reach-representative-text">Reach him by</div>
+      <a ng-href="tel: {{userModel.contactNo}}" class="tele-link">
+      <i class="fa fa-phone"></i>
+      </a>
+      <a ng-href="mailto: {{userModel.email}}">
+      <i class="fa fa-envelope-o"></i>
+      </a>
+   </div>
+</div>

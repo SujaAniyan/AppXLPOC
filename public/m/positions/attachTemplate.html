@@ -1,0 +1,46 @@
+<!-- List of feedbacks templates -->
+
+<div id="profile-details" header showprofile="false" icon="fa fa-plane" title1="Feedback Templates" query='query' >
+<!--  <div class="searchViewHead col-xs-12">
+        <div class="searchDivHead col-xs-12 col-sm-8 col-md-10 div-padding">
+
+              <input type="text" placeholder="Search" ng-model="$parent.query" />
+
+        </div>
+    </div> !-->
+</div>
+
+<div class="table-responsive data-grid">          
+<!-- <div ng-include src="public/m/positions/partials/feedbackGrid.html"></div> -->      
+    <!-- Grid filter -->
+    <div class="container">              
+        <table class="table table-striped table-condensed table-responsive table-hover">
+          <thead class="data-grid-header">
+            <!-- table header -->
+            <tr>
+              <th>
+                <span class="fa fa-th-large fa-lg"></span>&nbsp;&nbsp;
+                <a href="" ng-click="orderByField='title'; reverseSort = !reverseSort">Title</a>
+              </th>
+              <th></th>
+            </tr>
+
+            <!-- table filter -->
+           </thead>
+
+          <tbody class="data-grid-data">
+            <tr ng-repeat="feedback in feedbackList | filter: search |orderBy:orderByField:reverseSort">
+              <td>{{feedback.title}}</td>
+              <td>                      
+                  <input type="radio" id="choice" ng-model="$parent.radioValue" value="{{feedback._id}}"/> 
+              </td>                  
+            </tr>
+          </tbody>          
+
+        </table>
+    </div>
+</div>
+
+<div>  
+    <button type="submit" class="btn btn-primary" ng-click="attach(radioValue)">Attach</button>
+</div>

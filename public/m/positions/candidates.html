@@ -1,0 +1,63 @@
+<style>  
+@media only screen and (max-device-width: 320px){
+   
+.hd-sticky{
+    background-color: #f3f2f7;
+    position:relative;
+    height: 58px;
+
+}}
+
+</style>
+
+<div id="profile-details" header showprofile="false" title1="CANDIDATES APPLIED">
+<!--  <div class="searchViewHead col-xs-12">
+        <div class="searchDivHead col-xs-12 col-sm-8 col-md-10 div-padding">
+
+              <input type="text" placeholder="Search" ng-model="$parent.query" />
+
+        </div>
+    </div> !-->
+</div>
+
+<div class="col-xs-5">
+      <input type="text" class="form-control" placeholder="Search" ng-model="search.$" />      
+</div> 
+    
+<div class="list-group">
+    <div href="#" class="list-group-item" ng-repeat="candidate in candidateList | filter: search | orderBy:orderByField:reverseSort">
+        <div class="representative-pic col-xs-2 col-sm-1 col-md-1">
+            <div>
+            <img ng-src={{candidate.avatar}} class="img-circle userpic-bullet"/>
+            </div>
+        </div>
+        <div class="col-xs-8 col-sm-10 col-md-10">
+            <div class="representative-name">
+                <a target="_blank" href="/public/uploads/cv/{{candidate.empId}}.pdf">{{candidate.empName}}</a>
+            </div>
+        </div>
+        <div class="col-xs-8 col-sm-10 col-md-10">
+           <div class="representative-designation">{{candidate.jobTitle}}</div>
+        </div>
+        
+        <div>
+            <!--<a ng-href="tel: {{candidate.contactNumber}}" class="tele-link">
+                <div class="chevronnew-div col-xs-10 col-sm-1 col-md-1"> </div>
+            </a>
+
+            <a ng-href="{{candidate.email}}" class = "email-link">
+                <div class="chevron-div col-xs-1 col-sm-1 col-md-1"> </div>
+            </a> -->
+            <a ng-href="#/positions/{{positionId}}/{{candidate.id}}/feedback" class = "email-link">
+                <div class="chevron-div col-xs-1 col-sm-1 col-md-1"> </div>
+            </a>         
+        </div>    
+             
+        <div class="representative-bios">{{candidate.summary}}</div>        
+    </div>
+</div>
+
+<div ng-if="candidateList.length==0">
+    Oops!@! No Candidate Applied
+</div>
+

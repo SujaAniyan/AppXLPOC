@@ -1,0 +1,131 @@
+<style>
+
+    *{
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+    [ng-drag]{
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    [ng-drag]{
+        width: 100px;
+        height: 100px;
+        background: rgba(255,0,0, 0.5);
+        color:white;
+        text-align: center;
+        padding-top:17px;
+        display: inline-block;
+        margin:0 10px;
+        cursor: move;
+    }
+    ul.draggable-objects{
+        margin-bottom: 0px;
+        height: 125px;
+        width: 527px;
+        border: 1px solid;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    ul.draggable-objects:after{
+        display: block;
+        content:"";
+        clear:both;
+    }
+    .draggable-objects li{
+        float:left;
+        display: block;
+        width: 120px;
+        height:100px;
+        margin: 10px 0 10px 0;
+    }
+    [ng-drag].drag-over{
+        border:solid 1px red;
+    }
+    [ng-drag].dragging{
+        opacity: 0.5;
+    }
+    [ng-drop]{
+        background: rgba(0,255,0, 0.5);
+        text-align: center;
+        width: 527px;
+        height: 200px;
+        padding-top:90px;
+        display: block;
+        /*margin:20px auto;*/
+        position: relative;
+    }
+    [ng-drop].drag-enter{
+        border:solid 5px red;
+    }
+    [ng-drop] span.title{
+        display: block;
+        position: absolute;
+        top:50%;
+        left:50%;
+        width: 200px;
+        height: 20px;
+        margin-left: -100px;
+        margin-top: -10px;
+    }
+    [ng-drop] div{
+        position: relative;
+        z-index: 2;
+        cursor: default;
+    }
+
+
+  </style>
+
+<div id="profile-details" header showprofile="false" icon="fa fa-plane" title1="Add Candiadates" query='query' ></div>
+
+<div class="container">
+  <div class="row searchWrapper">
+    <div class="col-sm-9 col-md-4 col-xs-6">
+      <input type="text" class="form-control" placeholder="Search" ng-model="search.$" />
+    </div>
+ </div><!--row end here -->
+ 
+
+<div class="row" ng-controller="positionCtrl">
+  <div class="list-group">
+  <!-- draggable -->
+  <ul class="draggable-objects">
+    <!--li ng-repeat="obj in draggableObjects" >
+        <div ng-drag="true" ng-drag-data="obj" data-allow-transform="true"> {{obj.name}} </div>
+    </li-->
+     <li ng-repeat="candidate in usersList | filter: search | orderBy:orderByField:reverseSort">
+        <div ng-drag="true" ng-drag-data="candidate" data-allow-transform="true">
+          <img ng-src={{candidate.avatar}} class="img-circle userpic-bullet"/> 
+          <div>{{candidate.empName}}</div>
+          <div>{{candidate._id}}</div>
+        </div>
+    </li>
+  </ul>
+  <hr/>
+ 
+  <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+    <span class="title">Drop area #1</span>
+    <div ng-repeat="candidate in droppedObjects1" ng-drag="true" ng-drag-data="candidate" ng-drag-success="onDragSuccess1($data,$event)" ng-center-anchor="{{centerAnchor}}">
+        <a class="table-btn" ng-click="deleteAppCandidate(candidate.id)"> X </a>
+        <img ng-src={{candidate.avatar}} class="img-circle userpic-bullet"/>
+        <div>{{candidate.empName}}</div>
+        <div>{{candidate.id}}</div>
+    </div>
+  </div>
+
+  <!--div class="form-group">
+      <div class="col-sm-offset-2 col-sm-5">
+         <button type="submit" class="btn btn-primary" ng-click="addCandidates(droppedObjects1)">Save Candidates</button>         
+      </div>
+  </div-->
+  </div><!-- list grp end -->
+
+  <div ng-if="usersList.length==0">
+      Oops!@! No Candidate Applied
+  </div>  
+</div><!--row end here -->
+</div><!--container end here -->
+

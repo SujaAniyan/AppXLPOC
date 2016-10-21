@@ -1,0 +1,54 @@
+[
+    {    
+        "_id"					 : ObjectId("B20474567892345678900021"),
+        "empId"                  : "1497878", 
+        "empName"                : "Suja Aniyan", 
+        "empShortId"             : "saniyan",
+        "jobTitle"               : "Program Manager",
+        "cv"                     : "",
+        "overallRating"          : 4,
+        "summary"                : "Program Manager managing a Client Account",
+        "email"                  : "saniyan@csc.com",
+        "avatar"			     : "/public/assets/images/1497878.jpg"
+    },
+    
+    {   
+        "_id"					 : ObjectId("B30474567892345678900021"),
+        "empId"                  : "16447589", 
+        "empName"                : "Arun Amarnath", 
+        "empShortId"             : "aamarnath",
+        "jobTitle"               : "Associate Manager",
+        "cv"                     : "",
+        "overallRating"          : 5,
+        "summary"                : "Certified Scrum Master",
+        "email"                  : "aamarnath@csc.com",
+        "avatar"			     : "/public/assets/images/16447589.jpg"
+    },
+    
+    {
+        "_id"					 : ObjectId("B40474567892345678900021"),
+        "empId"                  : "456546747", 
+        "empName"                : "Uma Kalyan", 
+        "empShortId"             : "ukalyan",
+        "jobTitle"               : "Technical Architect",
+        "cv"                     : "",
+        "overallRating"          : 5,
+        "summary"                : "Certified .Net Architect with 12 years of experience",
+        "email"                  : "ukalyan@csc.com",
+        "avatar"			     : "/public/assets/images/456546747.jpg"
+    },
+    
+    {    
+        "_id"					 : ObjectId("B50474567892345678900021"),
+        "empId"                  : "78686869", 
+        "empName"                : "Punam Patekar", 
+        "empShortId"             : "ppatekar",
+        "jobTitle"               : "Technical Lead",
+        "cv"                     : "",
+        "overallRating"          : 5,
+        "summary"                : "Technical Lead leading a team of 12 developers",
+        "email"                  : "ppatekar@csc.com",
+        "avatar"			     : "/public/assets/images/78686869.jpg"
+    }
+    
+] 

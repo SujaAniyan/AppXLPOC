@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="page-header">
+    Directives
+    <div class="sub-header">List of directives
+    </div>
+  </div>
+{{viewmode="medium";""}}
+  <div class="form-group col-xs-6">
+  <h4>AutoComplete Directive</h4>
+  <br>
+  <!-- <br> -->
+  	<md-input-container class="form-group md-block">
+  	<div class="form-group" ng-class="{ 'has-error': keynotesForm.noteByUser1.$touched && keynotesForm.noteByUser1.$invalid }">
+  		<label>Select User &nbsp;&nbsp; :</label>
+  		<div userauto type="picker" user-model="usermodel" view-type="viewmode" user-id="userid" 
+  		user-email="useremail" switch-mode="mode" user-type="employee"></div>
+  	</div>
+  </md-input-container>
+</div>
+
+<div class="form-group col-xs-6">
+<h4>User Picker Directive</h4>
+	<br>
+	<!-- <br> -->
+	<md-input-container class="form-group md-block">
+	<div class="form-group" ng-class="{ 'has-error': keynotesForm.noteByUser1.$touched && keynotesForm.noteByUser1.$invalid }">
+		<label>Select User &nbsp;&nbsp; :</label>
+		<div user type="picker" user-model="usermodel1" view-type="viewmode" user-id="userid1" 
+		user-email="useremail1" switch-mode="mode" user-type="employee"></div>
+	</div>
+</md-input-container>
+</div>
+
+<div class="form-group col-xs-12">
+<h4>File Attachment Directives</h4>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <b>Single File Attachments</b></h3>
+  </div>
+  <div class = "panel-subheader pull-right">
+  </div>
+  <div class="panel-body">
+   <i><h5>Please click Attach files to add images, videos or audio files.</h5></i><br>
+   <span class="error text-info"><b> Note: </b>This is a mandatory field.</span>
+   <fileattachment folder-type="keynotes" file-size="25" file-allowed="1" array="array" file-type="singleFile"/>
+ </div>
+</div>
+</div>
+
+<div class="form-group col-xs-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <b>Multiple File Attachments</b></h3>
+  </div>
+  <div class = "panel-subheader pull-right">
+  </div>
+  <div class="panel-body">
+   <i><h5>Please click Attach files to add images, videos or audio files.</h5></i><br>
+   <span class="error text-info"><b> Note: </b>This is a mandatory field.</span>
+   <fileattachment folder-type="keynotes" file-size="25" file-allowed="1" array="array" file-type="singleFile"/>
+ </div>
+</div>
+</div>
+{{foldertype="profilePics";""}}
+<div class="form-group col-xs-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <b>File Upload Directive</b></h3>
+  </div>
+  <div class = "panel-subheader pull-right">
+  </div>
+  <div class="panel-body">
+   <fileupload folder-type="foldertype"/>
+ </div>
+</div>
+</div>
+
+<div class="form-group col-xs-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <b>Rich Text Directive</b></h3>
+  </div>
+  <div class = "panel-subheader pull-right">
+  </div>
+  <div class="panel-body">
+    <div class="field">
+      <label ng-show="keynotes.noteText" class="show-hide">Rich Text</label><br>
+      <text-angular 
+      ta-toolbar="[['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],['p', 'quote'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent','insertLink']]" 
+      ng-model="richText" name="richText"/>
+    </text-angular></div>
+    {{richText}}
+    <richtext body-text="richText"></richtext>
+  </div>
+</div>
+</div>
+
+<div class="form-group col-xs-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <b>Date picker Directive</b></h3>
+  </div>
+  <div class = "panel-subheader pull-right">
+  </div>
+  <div class="panel-body">
+  <input type="text" name="date" placeholder="Choose Date" ng-model="date" class="form-control" ui-date novalidate>
+  </div>
+</div>
+</div>
+

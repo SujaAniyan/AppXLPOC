@@ -1,0 +1,117 @@
+<div class="container">
+
+ <!-- page header/subheader -->
+
+    <div ng-if="mode=='add'" id="profile-details" header showprofile="false" icon="fa fa-plane" title1="Add Feedback Template" query='query' >
+
+    </div>
+    <div ng-if="mode=='edit'" id="profile-details" header showprofile="false" icon="fa fa-plane" title1="Edit Feedback Template" query='query' >
+
+    </div>
+
+<!--Feedback pageheader input--> 
+<div class="data-form">
+  <form name="feedbackForm" id="feedbackForm" class="form-vertical" novalidate
+  ng-model-options="{updateOn:'default blur',debounce:{'default':500,'blur':0}}">
+  <fieldset ng-disabled="isSaving">      
+        <!--Feedback Title-->
+        <md-input-container class="md-block">
+            <label>Feedback Title</label>
+            <input md-maxlength="30" minlength="5" required name="title" ng-model="feedbackDefs.title">
+            <div ng-messages="feedbackForm.title.$error" ng-show="feedbackForm.title.$touched || !feedbackForm.title.$pristine">
+             <div class="messagenotify">
+              <div ng-messages-include="/public/mods/partials/messages.html"></div>
+              <div ng-message="md-maxlength">The feedback title  need to be 5 to 30 characters long.</div>
+            </div>
+          </div>
+        </md-input-container>        
+        <hr>
+        <!-- Feedback Item-->   
+        <!-- <div ng-include src="'/public/mods/feedback/itemViewAdd.html'"></div> -->
+      
+      <!-- Candidate Self assessment Query Session starts here-->
+       <button class="btn-long-green"
+            ng-click="addFeedbackItem($event, 'self')">
+            Add Self Assessment Query
+        </button>
+
+        <hr>
+        <table class="table boldtable table-responsive table-bordered table-hover">
+
+          <thead class="data-grid-header" >
+            <tr>
+              <th><span class="glyphicon"></span>Query</th>
+              <th><span class="glyphicon"></span>Mode</th>
+              <th><span class="glyphicon"></span>Choices</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="data-grid-data">
+           <tr ng-repeat="item in items | filter: search | orderBy:orderByField:reverseSort">
+            <td ng-hide='item.category === "interviewer"'>{{item.query}}</td>
+            <td ng-hide='item.category === "interviewer"'>{{item.mode}}</td>
+            <td ng-hide='item.category === "interviewer"'>{{item.choices}}</td>
+            <td ng-hide='item.category === "interviewer"'><a class="table-btn" ng-click="removeItem($index,items)"><span class="glyphicon glyphicon-trash" ng-if="!isSaving" /></a>
+              <a class="table-btn" ng-click="editItem($index,item,$event)"><span class="glyphicon glyphicon-edit" /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+          
+      <!-- Interviewer Query Session starts here-->
+      
+      <button class="btn-long-orange"
+        ng-click="addFeedbackItem($event, 'interviewer')">
+        Add Interviewer Query
+        </button>
+
+         <!-- createBy
+          <div class="form-group"> 
+            <input type="text" class="form-control" placeholder="createBy" id="createBy" name="createBy" 
+            ng-model="feedbackDefs.createBy" required ng-list floating-validation/>
+          </div>
+        -->
+        <!-- createOn
+          <div class="form-group"> 
+             <input type="text" class="form-control" placeholder="createOn" id="createOn" name="createOn" 
+             ng-model="feedbackDefs.createOn" required ng-minlength="3" ng-maxlength="200" ng-list floating-validation/>
+          </div>
+        -->
+        <!-- Button -->
+        <hr>
+        <table class="table boldtable table-responsive table-bordered table-hover">
+
+          <thead class="data-grid-header" >
+            <tr>
+              <th><span class="glyphicon"></span>Query</th>
+              <th><span class="glyphicon"></span>Mode</th>
+              <th><span class="glyphicon"></span>Choices</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="data-grid-data">
+           <tr ng-repeat="item in items | filter: search |orderBy:orderByField:reverseSort">
+            <td ng-hide='item.category === "self"'>{{item.query}}</td>
+            <td ng-hide='item.category === "self"'>{{item.mode}}</td>
+            <td ng-hide='item.category === "self"'>{{item.choices}}</td>
+            <td ng-hide='item.category === "self"'><a class="table-btn" ng-click="removeItem($index,items)"><span class="glyphicon glyphicon-trash" ng-if="!isSaving" /></a>
+              <a class="table-btn" ng-click="editItem($index,item,$event)"><span class="glyphicon glyphicon-edit" /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <div class="form-group">              
+        <div>
+          <button type="submit" class="btn btn-success" ng-click="save('interviewer')" ng-disabled="feedbackForm.$invalid || fbvalid">Submit</button>
+          <button type="reset" class="btn btn-warning" ng-click="cancel()" confirm-dialog header-text="Cancel Form Submission" content="Are you sure you want to cancel the submission of this form ?"
+          yes-text="Ok" no-text="Cancel">Cancel</button>
+        </div>
+      </div>
+    </fieldset>
+
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<div scroll id="profile-details">
+   <!-- Modal -->
+   <div class="profile-pic"><img src="{{user.avatar}}"></div>
+   <div class="profile-name">{{user.name.first}} {{user.name.last}}</div>
+   <div class="profile-desc">{{user.jobTitle}} {{user.organization}}</div>
+   <!--<div class="profile-location">
+      <location-picker ng-model="pickedLocation" limit-to="1"></location-picker>
+   </div>-->
+</div>
+
+
+
+<div class="container" id="menu">
+    <div class="container" id="menu">
+        <br><br><br><br>
+        <div class="row">   
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a href="/m/positions">
+                    <img border="0" alt="OpenPositions" src="/public/assets/images/jobopening.ico" width="80" height="80">
+                </a>
+            </div>
+          
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a href="/m/positions/#/feedback" >
+                  <img border="0" alt="Feedback" src="/public/assets/images/feedback.ico" width="80" height="80">
+                </a>
+           </div> 
+        </div>
+            
+        <br><br><br><br>  
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <a href="/logout">
+                <img border="0" alt="Logout" src="/public/assets/images/logout.ico" width="80" height="80">
+              </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

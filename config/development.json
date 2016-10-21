@@ -1,0 +1,39 @@
+{
+  "auth": {
+  	"ttl": "3600000",
+    "secret": "top secret",
+    "expires": "7"
+  },
+
+  "profile":{
+    "default-pwd": "default"
+  },
+
+  "api": {
+    "cors": "true"
+  },
+
+  "logging": {
+    "log-level": "debug"
+  },
+
+  "sessions": {
+    "secret": "session top secret"
+  },
+
+  "assets":{
+    "mode": "dev"
+  },
+
+  "email": {
+    "smtp-options":{
+      "service": "gmail",
+      "auth": {
+        "user": "xxx@gmail.com",
+        "pass": "xxxx"
+      }
+    },
+    "send-mails": "true"
+  }
+
+}

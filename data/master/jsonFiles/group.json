@@ -1,0 +1,24 @@
+[
+	{
+		"_id"							: ObjectId("A20484567892345678900001"),
+
+		"name"						: "Admin Group",
+		"description"				: "Users who have privileged rights and who has access to modify the content of the application, adding, deleting users etc ",
+		"users"						:
+		[
+			ObjectId("A20474567892345678900001")
+		]
+	},
+
+	{
+		"_id"						: ObjectId("A20484567892345678900002"),
+
+		"name"						: "Interviewers",
+		"description"				: "Users who will be conducting the interviews",
+		"users"						:
+		[
+			ObjectId("A20474567892345678900002")
+		]
+	}
+
+]

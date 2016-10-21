@@ -1,0 +1,90 @@
+
+
+<div id="profile-details" header showprofile="false" icon="fa fa-plane" title1="CREATE JOB POSITION" query='query' >
+<!--  <div class="searchViewHead col-xs-12">
+        <div class="searchDivHead col-xs-12 col-sm-8 col-md-10 div-padding">
+
+              <input type="text" placeholder="Search" ng-model="$parent.query" />
+
+        </div>
+    </div> !-->
+</div>
+<div ng-controller="positionsCtrl">
+ 
+ <div ng-if="mode=='add'" class="page-header">
+      <div class="sub-header">Add New Job Position
+     </div>
+   </div>
+
+   <div ng-if="mode=='edit'" class="page-header">
+      <div class="sub-header">Edit Job Description -{{jobPos.jobTitle}}
+    </div>
+  </div>
+      
+
+<form class="form-horizontal" role="form" name="createPositionForm" id="createPositionForm" enctype="multipart/form-data">
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="vertical">PositionId</label>
+            <div class="col-md-6 col-sm-2">
+            <input type="text" class="form-control" id="vertical" placeholder="PositionId" ng-model="jobPos.positionId">
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="skills">Position Title</label>
+            <div class="col-md-6 col-sm-2">
+            <input type="text" class="form-control" id="skills" placeholder="Position Title" ng-model="jobPos.jobTitle">
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="location">Location</label>
+            <div class="col-md-6 col-sm-2">
+               <input type="text" class="form-control" id="location" placeholder="Enter cities you want to work.." ng-model="jobPos.location">
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="location">Valid Till</label>
+            <div class="col-md-6 col-sm-2">
+               <datepicker date-format="yyyy-MM-dd">
+                  <input ng-model="date" type="text"/>
+                </datepicker>
+            </div>
+         </div>
+         <div class="form-group">
+             <label class="control-label col-sm-2" for="fileAttach">Job Des File</label>
+              <div class="col-md-6 col-sm-2">
+                <button type="file" ngf-select="uploadFiles($file)"
+                  accept="'application/pdf'">
+                  Select File</button>
+                  <div ng-if="mode=='edit'">
+                    <h5>OLD JD -<a target="_blank" href="/public/uploads/jd/{{jobPos.jobDescription}}">{{jobPos.positionId}}</a></h5>
+                  </div>
+
+                <input type="hidden" class="form-control" name="Price" ng-init="Price=jobDescription;" ng-value="Price"/>
+                <br><br>
+                <span>File:</span>
+                <div>{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                    <span class="progress" ng-show="f.progress >= 0">
+                        <div style="width:{{f.progress}}%"
+                             ng-bind="f.progress + '%'"></div>
+                    </span>
+                </div>
+                {{errorMsg}}
+              </div>
+        </div>
+
+
+         <!--div class="form-group">
+            <label class="control-label col-sm-2" for="exp">Valid Till</label>
+             <div class="col-md-6 col-sm-2">
+                <input type="text" placeholder="Valid Till" ng-model="jobDes.expires" ui-date>
+            </div>         
+         </div-->
+         <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+               <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+               <button type="reset" class="btn btn-warning" ng-click="cancel()" confirm-dialog header-text="Cancel Form Submission" content="Are you sure you want to cancel the submission of this form ?" yes-text="Ok" no-text="Cancel">Cancel</button>
+            </div>
+         </div>
+      </form>
+
+</div>

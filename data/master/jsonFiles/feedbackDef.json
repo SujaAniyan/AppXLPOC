@@ -1,0 +1,47 @@
+[	
+
+    {
+	
+		"_id"							           : ObjectId("B20474567892345678902221"),	
+        "title"                                    : "Feedback Template for Architect",
+		"item"								       : 
+			[
+				{
+					"query"							: "Demonstrable relevant Architecture and Solutioning Experience",
+					"mode"							:  "star-rating", 
+					"choices"						: [ ],
+                    "category"                      : "self"
+						
+				},
+				
+				{
+					"query"							: "Demonstrable Pre-sales or Consulting Experience",
+					"mode"							:  "star-rating",
+					"choices"						: [ ],
+                    "category"                      : "interviewer"
+				},
+				
+            
+                {
+					"query"							: "Experience Communicating to/with High Level Executives",
+					"mode"							:  "single-choice", 
+					"choices"						: [ "Yes","No"],
+                    "category"                      : "self"
+				},
+				
+				{
+					"query"							: "Comfort in Big 5",
+					"mode"							: "multi-choice",
+					"choices"						: ["Big Data",	"Cloud", "Apps Mod/DevOps","Cyber","Mobile"],
+                    "category"                      : "interviewer"
+				}                
+			],
+		
+		"createdBy"						:  ObjectId("A20474567892345678900021"),
+		"createdOn"						: { "$date" : "2016-03-03T10:00:00.000Z"} 
+	}
+    
+    
+	
+]
+

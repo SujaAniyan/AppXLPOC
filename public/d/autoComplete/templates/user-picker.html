@@ -1,0 +1,27 @@
+<div angucomplete-alt
+   id="ex10"
+   placeholder="User"
+   pause="500"
+   selected-object="selectedUser"
+   remote-url="/api/v1/secure/admin/users/find/find?query="
+   remote-url-data-field="items"
+   title-field="firstName,lastName"
+   description-field="email"
+   minlength="3"
+   image-field="avatar"
+   input-class="form-control form-control-small"
+   match-class="highlight"
+   initial-value="userModel.email"
+   box-type="md"
+   ></div>
+<br>
+<ANY ng-switch="showFlag">
+   <ANY ng-switch-when="user">
+      <div ng-include = "getTemplate()">
+      </div>
+   </ANY>
+   <ANY ng-switch-default>
+      <div class="text-info" style="width:180px;!important;">
+      </div>
+   </ANY>
+</ANY>

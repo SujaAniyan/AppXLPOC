@@ -1,0 +1,121 @@
+<style type="text/css">
+.panel-default > .panel-heading {
+    color: #FFF;
+    background-color: #3199cb;
+    border-color: #3199cb;
+}
+.jItem{
+  background: #FFF none repeat scroll 0% 0%;
+  box-shadow: 10px 10px 5px #888888;
+  box-sizing: border-box;
+  border: 1px solid #FFF;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 303px;
+  height: 244px;
+  margin-bottom: 17px;
+  padding: 10px;
+  color: #FFF;
+  margin-right: 16px;
+}
+
+.job-info-container{
+    margin-top: 31px;
+}
+
+.jobsContainer ul{
+  margin-left: -45px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 374px){
+  .jItem{
+    width: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 480px) {
+  .jItem{
+    width: auto;
+    margin-right: auto;
+  }
+}
+
+</style>
+
+
+
+<div id="profile-details" header showprofile="false" icon="fa fa-plane" title1="OPEN POSITIONS" query='query' ></div>
+
+<div class="container">
+  <div class="row searchWrapper">
+    <div class="col-sm-9 col-md-4 col-xs-6">
+      <input type="text" class="form-control" placeholder="Search" ng-model="search.$" />
+    </div>
+    <div class="col-sm-3 col-md-6 col-xs-6">
+      <div ng-include src="'/public/m/positions/sort.html'"></div>
+    </div>
+ </div><!--row end here -->
+ 
+
+<div class="row" ng-controller="positionsCtrl">
+  <div class="my-visit-content col-sm-12">
+    <div class="jobsContainer">
+        <div class="itemWrapper">
+          <ul>
+            <li class="col-sm-12 jItem" ng-repeat="position in positionList | filter: search |orderBy:orderByField:reverseSort">
+                    <p class="pull-right">
+                      <a href="#/positions/{{position.positionId}}/addCandi"><i class="fa fa-user-plus" aria-hidden="true" style="color:#800080;"></i></a>
+
+                      <a href="#/positions/{{position.positionId}}/edit"><span class="fa fa-pencil-square-o" style="color:#800080;"/></a>
+
+                      <a class="table-btn" ng-click="delete(position._id)" confirm-dialog header-text="Delete job Description" content="Are you sure you want to delete the job description? </b>" 
+                      yes-text="Ok" no-text="Cancel"><span class="fa fa-times" tooltips tooltip-template="Delete job Description" style="color:#800080;"/></a>
+                    </p>
+                  <section class="job-info-container">
+                    <div class="dropdown pull-right">
+                      <div class="dropdown-toggle" type="button" data-toggle="dropdown">
+                          <i class="fa fa-ellipsis-v fonticon1" aria-hidden="true"></i>
+                      </div>
+                      <ul class="dropdown-menu">
+                          <li><a href="#/positions/{{position.positionId}}/candidates">Candidates Applied</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#/feedbackTmpl/attach/{{position.positionId}}">Attach Feedback Template</a></li>
+                          <li class="divider"></li>
+                          <li><a target="_blank" href="/public/uploads/jd/{{position.positionId}}.pdf">View JD</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#/contacts/:city">View Feedback</a></li>
+                      </ul>
+                  </div>
+                    <div class="visitlinks">
+                      <h4>{{position.positionId}}</h4>/
+                      <h5><a target="_blank" href="/public/uploads/jd/{{position.positionId}}.pdf"><i class="fa fa-user" aria-hidden="true" style="padding-right:5px;"></i>{{position.jobTitle | uppercase}}</a></h5>
+                    </div>
+                    <div class="col-right">
+                       <p class="visit-details">
+                        <i class="fa fa-shopping-bag" aria-hidden="true" style="padding-right:5px;"></i> 4-6 Yrs
+                       </p>
+                       <p class="visit-details">
+                        <i class="fa fa-map-marker" style="padding-right:5px;"></i> {{position.location}}
+                       </p>
+                      <div class="spacer"></div>
+                      <div class="job-analytics">
+                        <hr align="left">
+                        <div class="activity-module">
+                          <p class="visit-details">
+                            <i class="fa fa-calendar"></i> {{position.validTill | date:"dd MMM yyyy"}} 
+                          </p>
+                          <p class="pull-left"><i class="fa fa-fire" aria-hidden="true" style="color:#F19005;"></i></p>
+                          <p class="pull-right"><i class="fa fa-star-o" aria-hidden="true" style="color:#800080;"></i></p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+              </li>
+          </ul>
+        </div> 
+    </div>   
+  </div>
+  </div><!--row end here -->
+  </div><!--container end here -->
+

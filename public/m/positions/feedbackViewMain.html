@@ -1,0 +1,76 @@
+<!-- List of feedbacks templates -->
+
+<!--<div header showprofile="false" icon="fa fa-plane" >
+  <div class="page-header" >
+    feedback Management 
+    <div class="sub-header">list of feedback templates
+    </div>
+  </div>-->
+<div id="profile-details" header showprofile="false" icon="fa fa-plane" title1="Feedback Templates" query='query' >
+<!--  <div class="searchViewHead col-xs-12">
+        <div class="searchDivHead col-xs-12 col-sm-8 col-md-10 div-padding">
+
+              <input type="text" placeholder="Search" ng-model="$parent.query" />
+
+        </div>
+    </div> !-->
+</div>
+
+  <div class="table-responsive data-grid">          
+    <!-- <div ng-include src="public/m/positions/partials/feedbackGrid.html"></div> -->      
+        <!-- Grid filter -->
+        <div class="container">
+              <div class="form-inline has-feedback filter-header">
+              <div class="row">
+                <div class="col-xs-5">
+                  <input type="text" class="form-control" placeholder="Search" ng-model="search.$" />
+                <!-- <i class="glyphicon glyphicon-search form-control-feedback"></i> -->
+                  <button class="btn btn-default btn-sm" ng-click="hideFilter=!hideFilter">Advanced Search</button>
+                </div>
+                <div class="col-xs-4" ng-if="!isSaving">
+                  <a class="btn btn-default btn-sm pull-right" href="#/feedbackTmpl/add">Add New Feedback</a>
+                </div>
+                <div ng-include src="/public/mods/feedback/partials/sortSearch.html"></div>
+              </div>
+            </div> <!-- Grid filter ends -->
+
+            <table class="table table-striped table-condensed table-responsive table-hover">
+              <thead class="data-grid-header">
+                <!-- table header -->
+                <tr>
+                  <th>
+                    <span class="fa fa-th-large fa-lg"></span>&nbsp;&nbsp;
+                    <a href="" ng-click="orderByField='title'; reverseSort = !reverseSort">Title</a>
+                  </th>
+                  <th></th>
+                </tr>
+
+                <!-- table filter -->
+                <tr ng-hide="hideFilter">
+                  <th><span ng-hide="hideFilter"><input type="text" ng-model="search.title"></span></th>
+                  <th><span ng-hide="hideFilter"><input type="text" ng-model="search.type"></span></th>
+                  <!-- <th><span ng-hide="hideFilter"><input type="text" ng-model="search.userCreateBy"></span></th> -->
+                  <!-- <th><span ng-hide="hideFilter"><input type="text" ng-model="search.createOn"></span></th> -->
+                  <th><span ng-hide="hideFilter">&nbsp;</span></th>
+                  <th><span ng-hide="hideFilter">&nbsp;</span></th>
+                  <th><span ng-hide="hideFilter">&nbsp;</span></th>
+                </tr>
+               </thead>
+
+              <tbody class="data-grid-data">
+                <tr ng-repeat="feedback in feedbackList | filter: search |orderBy:orderByField:reverseSort">
+                  <td>{{feedback.title}}</td>
+                  <td>                      
+                    <a class="table-btn" ng-if="isSaving" href="#/feedbackTmpl/{{feedback._id}}/edit" tooltips tooltip-template="View Template"><span class="fa fa-eye fa-lg" /></a>
+                    <a class="table-btn" ng-if="!isSaving" href="#/feedbackTmpl/{{feedback._id}}/edit" tooltips tooltip-template="Edit Template"><span class="fa fa-edit fa-lg" /></a>
+                    <a class="table-btn" ng-click="delete(feedback)" confirm-dialog header-text="Delete Feedback" content="Are you sure you want to delete the feedback with feedback title <b>{{feedback.title}} ? </b>" 
+                    yes-text="Ok" no-text="Cancel"><span class="fa fa-trash fa-lg" tooltips tooltip-template="Delete Template" ng-if="!isSaving"/></a>
+                    <a class="table-btn" ng-click="showFeedbackTemp($event,feedback._id)" tooltips tooltip-template="View Template" ng-if="!isSaving"><span class="fa fa-comments fa-lg"/></a>
+                    <a class="table-btn" ng-click="copy(feedback)" tooltips tooltip-template="Copy Template" ng-if="!isSaving"><span class="fa fa-files-o fa-lg" /></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+  </div>
+</div>

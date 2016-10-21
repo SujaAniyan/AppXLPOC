@@ -1,0 +1,51 @@
+     <style>.title-icon{
+      margin-top: 30px;
+      font-size: 38px;
+      color: purple;
+    width: 60px;
+height:60px;
+        background: #ddd;
+    padding: 11px;
+    border-radius: 50%;
+       box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+     }
+
+    
+     </style>
+      <div class="my-header col-xs-12 col-sm-12 col-md-12">        
+                <div class="my-sub-header col-xs-12 col-sm-12 col-md-12">
+        
+                     
+                    
+                    <div class="profile-details-div">
+                      
+                        <a id="menu-toggle">
+                           <i class="fa fa-bars" style="color:#FFF;font-size:25px;"></i> 
+                        </a>
+                   &nbsp;&nbsp;       
+         
+                        <div class="profile-overview">
+                              
+                            <h1>{{title1}}</h1>
+                            <p><a href="#">{{title2}}</a></p>
+                        </div>
+                    </div>
+                    
+        
+                </div>
+           </div>
+
+<script>
+    /*$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#page").toggleClass("toggled");
+    });*/
+
+     $(document).on("click", "#menu-toggle", function(e) {
+        e.preventDefault();
+        $("#page").toggleClass("toggled");
+        e.stopImmediatePropagation();
+    });
+</script>

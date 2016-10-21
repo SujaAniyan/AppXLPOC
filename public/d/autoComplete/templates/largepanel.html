@@ -1,0 +1,17 @@
+<br>
+<div class="panel panel-default" ng-if="userModel!=null">
+   {{title}}
+   <div class="panel-body ">
+      <div class="pull-left">
+         <img ng-src="{{userModel.avatar}}" class="img-circle userpiclg"> 
+      </div>
+      <div class="panelpdlg">
+         <div class="text-highlight">{{userModel.name.first}} {{userModel.name.last}}</div>
+         <div class="text-xsmall">{{userModel.email}}</div>
+         <div class="text-xsmall">{{userModel.jobTitle}}</div>
+         <div class="text-xsmall">{{userModel.organization}}</div>
+         <div class="text-desc">{{userModel.summary}}</div>
+      </div>
+   </div>
+</div>
+</div>
